@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from misitio.views import hola, raiz, fecha_actual, horas_adelante
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    #url(r'^admin/', admin.site.urls),
+    url(r'^$', raiz),
+    url(r'^hola/$', hola),
+    url(r'^fecha/$', fecha_actual),
+    url(r'^fecha/mas/(\d{1,2})/$', horas_adelante), # Solo 2 digitos {1,2}
 ]
