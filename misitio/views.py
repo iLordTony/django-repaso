@@ -1,8 +1,7 @@
+import datetime
+
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
-from django.template import Context
-from django.template.loader import get_template
-import datetime
 
 
 def hola(request):
@@ -30,5 +29,4 @@ def horas_adelante(request, offset):
         raise Http404()
 
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    html = "<html><body><h1>En %s hora(s), seran:</h1><h3>%s</h3></body></html>" % (offset, dt)
-    return HttpResponse(html)
+    return render(request, 'horas_adelante.html', {'fecha_adelante': dt, 'horas': offset})
