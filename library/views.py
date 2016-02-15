@@ -1,14 +1,21 @@
+# coding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
+from library.models import Book
 
 # Create your views here.
-def formulario_buscar(request):
-    return render(request, 'formulario_buscar.html')
+
 
 def buscar(request):
-    if 'q' in request.GET and request.GET['q']:
-        msn = 'Estas buscando: %r' % request.GET['q']
-    else:
-        msn = 'Formulario vacio =('
+    errors = []
+    if 'q' in request.GET:
+        q = request.GET['q']
+        if not q:
+            errors.append('Por favor introduce un término de búsqueda.')
+        elif len(q) > 20:
+            errors.append('Por favor introduce un término de búsqueda menor a 20 caracteres.')
+        else:
+            books = Book.objects.filter(title__icontains=q) # icontains no importan las mayusculas o minusculas
+            return render(request, 'resultados.html', {'books': books, 'query': q})
 
-    return HttpResponse(msn)
+    return render(request, 'formulario-buscar.html', {'errors': errors})

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Mas busqueda{% endblock %}
+{% block content %}
+    <p>Estas buscado: <strong>{{ query }}</strong></p>
+    {% if books %}
+        <p>Libros encontrados: {{ books|length }} libro{{ libros|pluralize }}.</p>
+        <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ningún libro coincide con el criterio de búsqueda.</p>
+    {% endif %}
+{% endblock %}
+
