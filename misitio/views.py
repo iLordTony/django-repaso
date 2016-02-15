@@ -30,3 +30,10 @@ def horas_adelante(request, offset):
 
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
     return render(request, 'horas_adelante.html', {'fecha_adelante': dt, 'horas': offset})
+
+
+def atributos_meta(request):
+    valor = request.META.items()
+    valor.sort()
+
+    return render(request, 'atributos.html', {'valor': valor})

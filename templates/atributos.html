@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Atributos Meta{% endblock %}
+{% block content %}
+    <table>
+    {% for foo in valor %}
+        <tr>
+        {% for na in foo %}
+            <td>{{ na }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
