@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^fecha/$', views.fecha_actual),
     url(r'^fecha/mas/(\d{1,2})/$', views.horas_adelante), # Solo 2 digitos {1,2}
     url(r'^atributos/$', views.atributos_meta),
-    url(r'^library/', include('library.urls'))
+    url(r'^library/', include('library.urls')),
+    url(r'^contactos/', include('contactos.urls')),
 ]

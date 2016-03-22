@@ -119,6 +119,8 @@ USE_L10N = True
 USE_TZ = True
 
 
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Muestra envio en la terminal
+#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend' # Simula envio
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
