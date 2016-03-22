@@ -2,6 +2,20 @@
 
 {% block title %}Contactanos{% endblock %}
 {% block content %}
+<style type="text/css">
+    .errorlist {
+        margin: 0;
+        padding: 0;
+    }
+    .errorlist li {
+        background-color: red;
+        color: white;
+        display: block;
+        font-size: 10px;
+        margin: 0 0 3px;
+        padding: 4px 5px;
+    }
+</style>
     <h1>Contactanos</h1>
     {% if form.errors %}
         <p style="color: red">Por favor corrige lo siguiente:</p>
@@ -12,4 +26,5 @@
         </table>
         <input type="submit" value="Enviar">
     </form>
+
 {% endblock %}

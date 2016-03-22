@@ -17,5 +17,5 @@ def contact(request):
                       ['siteowner@example.com'],)
             return HttpResponseRedirect('/contactos/gracias/')
     else:
-        form = FormContactos()
+        form = FormContactos(initial={'asunto': 'Hello Moy'})
     return render(request, 'formulario-contactos.html', {'form': form})
