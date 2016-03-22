@@ -21,9 +21,21 @@
         <p style="color: red">Por favor corrige lo siguiente:</p>
     {% endif %}
     <form action="" method="post">{% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
+        <div class="field">
+            {{ form.asunto.errors }}
+            <label for="id_asunto">Asunto:</label>
+            {{ form.asunto }}
+        </div>
+        <div class="field">
+            {{ form.email.erros }}
+            <label for="id_asunto">Tu email:</label>
+            {{ form.email }}
+        </div>
+        <div class="field">
+            {{ form.mensaje.errors }}
+            <label for="id_mensaje">Mensaje:</label>
+            {{ form.mensaje }}
+        </div>
         <input type="submit" value="Enviar">
     </form>
 
